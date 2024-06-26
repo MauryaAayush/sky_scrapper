@@ -41,55 +41,82 @@ GlassmorphicContainer glassmorphicContainerTemp(
             height: 20,
           ),
           Container(
-            padding: EdgeInsets.only(left: 15, top: 10),
-            height: 140,
+            padding: EdgeInsets.only(left: 15, top: 10,bottom: 10,right: 15),
+            height: 110,
             width: 250,
             decoration: BoxDecoration(
-                color: Colors.white10, borderRadius: BorderRadius.circular(20)),
-            child: Column(
+                color: Colors.white24, borderRadius: BorderRadius.circular(20)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Today, ',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Today, ',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14),
+                        ),
+                        Text(
+                          "${weatherProvider.dateTime.day} June",
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14),
+                        ),
+                      ],
                     ),
-                    Text(
-                      "${weatherProvider.dateTime.day} June",
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14),
+                    Row(
+                      children: [
+                        Text(
+                          weatherProvider.weather!.currentModal.tempC.toString(),
+                          style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          ' / ',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        Text(
+                          weatherProvider.weather!.currentModal.feelsLikeC
+                              .toString(),
+                          style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
+                    Row(
+                      children: [
+                        Text('Rain',style: TextStyle(
+                          color: Colors.white
+                        ),)
+                      ],
+                    ),
+
                   ],
                 ),
-                Row(
-                  children: [
-                    Text(
-                      weatherProvider.weather!.currentModal.tempC.toString(),
-                      style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      ' / ',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                    Text(
-                      weatherProvider.weather!.currentModal.feelsLikeC
-                          .toString(),
-                      style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
+                Spacer(),
+                Column(
+                 children: [
+                   SizedBox(
+                     height: height * 0.05,
+                     child: Image.network(
+                       'https:${weatherProvider.weather!.currentModal.conditionModel.icon}',
+                       fit: BoxFit.cover,
+                     ),
+                   ),
+                 ],
+                )
               ],
             ),
           ),

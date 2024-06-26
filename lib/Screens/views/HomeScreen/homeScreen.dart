@@ -61,7 +61,7 @@ class Homescreen extends StatelessWidget {
                               child: Text(
                                 weatherProvider.weather!.currentModal.tempC.toString(),
                                 style:
-                                GoogleFonts.poppins(color: Colors.white, fontSize: 100),
+                                GoogleFonts.poppins(color: Colors.white, fontSize: 80),
                               ),
                             ),
                             Padding(
@@ -77,16 +77,9 @@ class Homescreen extends StatelessWidget {
                             ),
                           ],
                         ),
-
                         SizedBox(
-                          height: height * 0.15,
-                          child: Image.network(
-                            'https:${weatherProvider.weather!.currentModal.conditionModel.icon}',
-                            fit: BoxFit.cover,
-                          ),
+                          height: 300,
                         ),
-
-                        // weatherImage(height, weatherProvider),
                         glassmorphicContainerTemp(height, width, weatherProvider),
                       ],
                     ),
