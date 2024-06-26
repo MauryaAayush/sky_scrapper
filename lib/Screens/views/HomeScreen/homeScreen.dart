@@ -52,6 +52,9 @@ class Homescreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 300,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +64,7 @@ class Homescreen extends StatelessWidget {
                               child: Text(
                                 weatherProvider.weather!.currentModal.tempC.toString(),
                                 style:
-                                GoogleFonts.poppins(color: Colors.white, fontSize: 80),
+                                GoogleFonts.poppins(color: Colors.white, fontSize: 80,fontWeight: FontWeight.w400),
                               ),
                             ),
                             Padding(
@@ -77,9 +80,7 @@ class Homescreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 300,
-                        ),
+
                         glassmorphicContainerTemp(height, width, weatherProvider),
                       ],
                     ),
