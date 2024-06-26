@@ -38,7 +38,6 @@ class Homescreen extends StatelessWidget {
                 wetherAppBar(width),
                 weatherImage(height, weatherProvider),
                 glassmorphicContainerTemp(height, width, weatherProvider),
-
               ],
             ),
           ),
