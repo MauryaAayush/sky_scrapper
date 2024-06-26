@@ -52,7 +52,41 @@ class Homescreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        weatherImage(height, weatherProvider),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 16.0),
+                              child: Text(
+                                weatherProvider.weather!.currentModal.tempC.toString(),
+                                style:
+                                GoogleFonts.poppins(color: Colors.white, fontSize: 100),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 16.0),
+                              child: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(width: 5, color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(
+                          height: height * 0.15,
+                          child: Image.network(
+                            'https:${weatherProvider.weather!.currentModal.conditionModel.icon}',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        // weatherImage(height, weatherProvider),
                         glassmorphicContainerTemp(height, width, weatherProvider),
                       ],
                     ),

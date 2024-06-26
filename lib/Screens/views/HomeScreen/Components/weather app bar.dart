@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 Row wetherAppBar(double width) {
   return Row(
     children: [
-      const Icon(
-        Icons.location_on_outlined,
-        color: Colors.white,
-        size: 25,
+
+      SizedBox(
+        height: 80,
       ),
+
+
       SizedBox(
         width: width * 0.04,
       ),
@@ -20,9 +21,11 @@ Row wetherAppBar(double width) {
         width: width * 0.03,
       ),
 
-      SizedBox(
-        width: width * 0.5,
-      ),
+      // SizedBox(
+      //   width: width * 0.5,
+      // ),
+
+      Spacer(),
       const Icon(
         Icons.menu,
         size: 25,
@@ -30,13 +33,17 @@ Row wetherAppBar(double width) {
       ),
 
       SizedBox(
-        width: width * 0.04,
+        width: width * 0.06,
       ),
 
       Icon(
         Icons.settings,
         size: 25,
         color: Colors.white,
+      ),
+
+      SizedBox(
+        width: width * 0.04,
       ),
 
     ],

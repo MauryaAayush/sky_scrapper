@@ -27,8 +27,8 @@ GlassmorphicContainer glassmorphicContainerTemp(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-         Colors.transparent,
-         Colors.transparent,
+        Colors.transparent,
+        Colors.transparent,
       ],
     ),
     child: Padding(
@@ -37,24 +37,61 @@ GlassmorphicContainer glassmorphicContainerTemp(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: height * 0.02),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Today, ',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18),
-              ),
-              Text(
-                "${weatherProvider.dateTime.day} June",
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18),
-              ),
-            ],
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 15, top: 10),
+            height: 140,
+            width: 250,
+            decoration: BoxDecoration(
+                color: Colors.white10, borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Today, ',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14),
+                    ),
+                    Text(
+                      "${weatherProvider.dateTime.day} June",
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      weatherProvider.weather!.currentModal.tempC.toString(),
+                      style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      ' / ',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    Text(
+                      weatherProvider.weather!.currentModal.feelsLikeC
+                          .toString(),
+                      style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +102,7 @@ GlassmorphicContainer glassmorphicContainerTemp(
                 child: Text(
                   weatherProvider.weather!.currentModal.tempC.toString(),
                   style:
-                      GoogleFonts.overpass(color: Colors.white, fontSize: 100),
+                      GoogleFonts.poppins(color: Colors.white, fontSize: 100),
                 ),
               ),
               Padding(
