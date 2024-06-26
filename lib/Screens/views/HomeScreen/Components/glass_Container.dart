@@ -120,30 +120,8 @@ GlassmorphicContainer glassmorphicContainerTemp(
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Text(
-                  weatherProvider.weather!.currentModal.tempC.toString(),
-                  style:
-                      GoogleFonts.poppins(color: Colors.white, fontSize: 100),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Container(
-                  height: 20,
-                  width: 20,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(width: 5, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
+          SizedBox(
+            height: 20,
           ),
           Text(
             weatherProvider.weather!.currentModal.conditionModel.text,
@@ -186,6 +164,93 @@ GlassmorphicContainer glassmorphicContainerTemp(
               ],
             ),
           ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                height: 170,
+                width: 155,
+                decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(20)
+                ),
+              ),
+              Container(
+                height: 170,
+                width: 155,
+                decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(20)
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                height: 170,
+                width: 155,
+                decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(20)
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.cloudy_snowing,color: Colors.white70,),
+                        Text('Precipitation',style: TextStyle(
+                          color: Colors.white70
+                        ),)
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text('14.1',style: TextStyle(
+                            color: Colors.white70
+                        ),),
+                        Text('mm | 60%',style: TextStyle(
+                            color: Colors.white70
+                        ),),
+
+                      ],
+                    ),
+                    Text(
+                      'Pay attention to waterproofing, avoid slips, and be careful of standing water',
+                      style: TextStyle(
+                        overflow: TextOverflow.visible, // You can also use TextOverflow.fade or TextOverflow.clip
+                      ),
+                    )
+
+                  ],
+                ),
+              ),
+              Container(
+                height: 170,
+                width: 155,
+                decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(20)
+                ),
+              ),
+            ],
+          )
+
+
+          
+
+
+
         ],
       ),
     ),
