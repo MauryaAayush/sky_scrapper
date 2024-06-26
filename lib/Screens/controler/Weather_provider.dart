@@ -3,18 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:sky_scrapper/Screens/controler/helpers/api_services.dart';
 import '../model/weatherData_Model.dart';
 
-class WeatherProvider extends ChangeNotifier{
+class WeatherProvider extends ChangeNotifier {
   Weather? weather;
-  DateTime dateTime =DateTime.now();
+  DateTime dateTime = DateTime.now();
 
-
-  WeatherProvider()
-  {
+  WeatherProvider() {
     fetchData();
   }
 
-  Future<void> fetchData()
-  async {
+  Future<void> fetchData() async {
     ApiServices apiServices = ApiServices();
     String? jsonData = await apiServices.getData();
     if (jsonData != null) {

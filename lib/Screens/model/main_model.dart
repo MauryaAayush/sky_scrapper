@@ -3,7 +3,7 @@ class WeatherForecast {
 
   WeatherForecast({required this.forecastday});
 
-  factory WeatherForecast.fromJson(Map<String, dynamic> json) {
+  factory WeatherForecast.fromJson(Map json) {
     return WeatherForecast(
       forecastday: (json['forecastday'] as List)
           .map((i) => ForecastDay.fromJson(i))
@@ -11,7 +11,7 @@ class WeatherForecast {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map toJson() {
     return {
       'forecastday': forecastday.map((e) => e.toJson()).toList(),
     };
@@ -28,7 +28,7 @@ class Condition {
     required this.code,
   });
 
-  factory Condition.fromJson(Map<String, dynamic> json) {
+  factory Condition.fromJson(Map json) {
     return Condition(
       text: json['text'],
       icon: json['icon'],
@@ -36,7 +36,7 @@ class Condition {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map toJson() {
     return {
       'text': text,
       'icon': icon,
@@ -66,7 +66,7 @@ class Astro {
     required this.isSunUp,
   });
 
-  factory Astro.fromJson(Map<String, dynamic> json) {
+  factory Astro.fromJson(Map json) {
     return Astro(
       sunrise: json['sunrise'],
       sunset: json['sunset'],
@@ -79,7 +79,7 @@ class Astro {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map toJson() {
     return {
       'sunrise': sunrise,
       'sunset': sunset,
@@ -109,7 +109,7 @@ class ForecastDay {
     required this.hour,
   });
 
-  factory ForecastDay.fromJson(Map<String, dynamic> json) {
+  factory ForecastDay.fromJson(Map json) {
     return ForecastDay(
       date: json['date'],
       dateEpoch: json['date_epoch'],
@@ -119,7 +119,7 @@ class ForecastDay {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map toJson() {
     return {
       'date': date,
       'date_epoch': dateEpoch,
@@ -203,7 +203,7 @@ class ForecastDay {
     required this.uv,
   });
 
-  factory Hour.fromJson(Map<String, dynamic> json) {
+  factory Hour.fromJson(Map json) {
     return Hour(
       timeEpoch: json['time_epoch'],
       time: json['time'],
@@ -242,7 +242,7 @@ class ForecastDay {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map toJson() {
     return {
       'time_epoch': timeEpoch,
       'time': time,
@@ -326,7 +326,7 @@ class Day {
     required this.uv,
   });
 
-  factory Day.fromJson(Map<String, dynamic> json) {
+  factory Day.fromJson(Map json) {
     return Day(
       maxtempC: json['maxtemp_c'],
       maxtempF: json['maxtemp_f'],
@@ -351,7 +351,7 @@ class Day {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map toJson() {
     return {
       'maxtemp_c': maxtempC,
       'maxtemp_f': maxtempF,

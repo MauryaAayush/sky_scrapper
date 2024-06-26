@@ -4,7 +4,6 @@ import 'main_model.dart';
 
 class Weather {
   LocationModal locationModal;
-
   CurrentModal currentModal;
   WeatherForecast weatherForecast;
 
