@@ -1,42 +1,34 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controler/Weather_provider.dart';
 
-
-
-GlassmorphicContainer glassmorphicContainerTemp(double height, double width,WeatherProvider weatherProvider) {
+GlassmorphicContainer glassmorphicContainerTemp(
+    double height, double width, WeatherProvider weatherProvider) {
   return GlassmorphicContainer(
     width: 350,
-    height: 350,
+    height: 850,
     borderRadius: 20,
     blur: 20,
     padding: const EdgeInsets.all(40),
     alignment: Alignment.bottomCenter,
     border: 2,
     linearGradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          const Color(0xFFffffff)
-              .withOpacity(0.30000001192092896),
-          const Color(0xFFFFFFFF)
-              .withOpacity(0.30000001192092896),
-        ],
-        stops: [
-          0.1,
-          1,
-        ]),
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        const Color(0xFFffffff).withOpacity(0.05),
+        const Color(0xFFFFFFFF).withOpacity(0.05),
+      ],
+      stops: [0.1, 1],
+    ),
     borderGradient: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-        const Color(0xFFffffff).withOpacity(0.5),
-        const Color((0xFFFFFFFF)).withOpacity(0.5),
+         Colors.transparent,
+         Colors.transparent,
       ],
     ),
     child: Padding(
@@ -44,14 +36,12 @@ GlassmorphicContainer glassmorphicContainerTemp(double height, double width,Weat
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            height: height * 0.02,
-          ),
+          SizedBox(height: height * 0.02),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Today , ',
+                'Today, ',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
@@ -71,35 +61,29 @@ GlassmorphicContainer glassmorphicContainerTemp(double height, double width,Weat
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding:
-                const EdgeInsets.only(top: 16.0),
+                padding: const EdgeInsets.only(top: 16.0),
                 child: Text(
-                  weatherProvider.weather!.currentModal.tempC
-                      .toString(),
-                  style: GoogleFonts.overpass(
-                      color: Colors.white, fontSize: 100),
+                  weatherProvider.weather!.currentModal.tempC.toString(),
+                  style:
+                      GoogleFonts.overpass(color: Colors.white, fontSize: 100),
                 ),
               ),
               Padding(
-                padding:
-                const EdgeInsets.symmetric(vertical: 16.0),
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Container(
                   height: 20,
                   width: 20,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border:
-                    Border.all(width: 5, color: Colors.white),
+                    border: Border.all(width: 5, color: Colors.white),
                   ),
                 ),
               ),
             ],
           ),
           Text(
-            weatherProvider
-                .weather!.currentModal.conditionModel.text,
-            style: GoogleFonts.overpass(
-                color: Colors.white, fontSize: 22),
+            weatherProvider.weather!.currentModal.conditionModel.text,
+            style: GoogleFonts.overpass(color: Colors.white, fontSize: 22),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -109,25 +93,13 @@ GlassmorphicContainer glassmorphicContainerTemp(double height, double width,Weat
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(
-                      Icons.air,
-                      color: Colors.white,
-                    ),
+                    Icon(Icons.air, color: Colors.white),
+                    Text('Wind',
+                        style: GoogleFonts.overpass(color: Colors.white)),
+                    Text('|', style: GoogleFonts.overpass(color: Colors.white)),
                     Text(
-                      'Wind',
-                      style: GoogleFonts.overpass(
-                        color: Colors.white, ),
-                    ),
-                    Text(
-                      '|',
-                      style: GoogleFonts.overpass(
-                        color: Colors.white, ),
-                    ),
-                    Text(
-                      '${weatherProvider.weather!.currentModal.windKph} Km/h',
-                      style: GoogleFonts.overpass(
-                        color: Colors.white, ),
-                    ),
+                        '${weatherProvider.weather!.currentModal.windKph} Km/h',
+                        style: GoogleFonts.overpass(color: Colors.white)),
                   ],
                 ),
                 Padding(
@@ -135,28 +107,15 @@ GlassmorphicContainer glassmorphicContainerTemp(double height, double width,Weat
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(
-                        Icons.water_drop_outlined,
-                        color: Colors.white,
-                      ),
+                      Icon(Icons.water_drop_outlined, color: Colors.white),
+                      Text('Hum',
+                          style: GoogleFonts.overpass(color: Colors.white)),
+                      Text('|',
+                          style: GoogleFonts.overpass(color: Colors.white)),
                       Text(
-                        'Hum',
-                        style: GoogleFonts.overpass(
-                          color: Colors.white, ),
-                      ),
-                      Text(
-                        '|',
-                        style: GoogleFonts.overpass(
-                          color: Colors.white, ),
-                      ),
-                      Text(
-                        '${weatherProvider.weather!.currentModal.humidity} %',
-                        style: GoogleFonts.overpass(
-                          color: Colors.white, ),
-                      ),
-                      SizedBox(
-                        width: width*0.000001,
-                      ),
+                          '${weatherProvider.weather!.currentModal.humidity} %',
+                          style: GoogleFonts.overpass(color: Colors.white)),
+                      SizedBox(width: width * 0.000001),
                     ],
                   ),
                 ),
