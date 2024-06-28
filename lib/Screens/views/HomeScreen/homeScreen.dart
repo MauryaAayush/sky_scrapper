@@ -16,7 +16,7 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     WeatherProvider weatherProviderfalse = Provider.of<WeatherProvider>(context,listen: false);
-    TextEditingController searchController = TextEditingController(text: 'Surat');
+    TextEditingController searchController = TextEditingController();
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;

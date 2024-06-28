@@ -6,6 +6,9 @@ import 'helpers/api_services.dart';
 class WeatherProvider extends ChangeNotifier {
   Weather? weather;
   DateTime dateTime = DateTime.now();
+
+
+
   bool isLoading = false;
   WeatherProvider() {
     fetchData('Surat');
