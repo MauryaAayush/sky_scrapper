@@ -8,7 +8,7 @@ GlassmorphicContainer glassmorphicContainerTemp(
     double height, double width, WeatherProvider weatherProvider) {
   return GlassmorphicContainer(
     width: 350,
-    height: 850,
+    height: 350,
     borderRadius: 20,
     blur: 20,
     padding: const EdgeInsets.all(40),
@@ -165,86 +165,86 @@ GlassmorphicContainer glassmorphicContainerTemp(
             ),
           ),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                height: 170,
-                width: 155,
-                decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(20)
-                ),
-              ),
-              Container(
-                height: 170,
-                width: 155,
-                decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(20)
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                height: 170,
-                width: 155,
-                decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(20)
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.cloudy_snowing,color: Colors.white70,),
-                        Text('Precipitation',style: TextStyle(
-                          color: Colors.white70
-                        ),)
-                      ],
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('14.1',style: TextStyle(
-                            color: Colors.white70
-                        ),),
-                        Text('mm | 60%',style: TextStyle(
-                            color: Colors.white70
-                        ),),
-
-                      ],
-                    ),
-                    Text(
-                      'Pay attention to waterproofing, avoid slips, and be careful of standing water',
-                      style: TextStyle(
-                        overflow: TextOverflow.visible, // You can also use TextOverflow.fade or TextOverflow.clip
-                      ),
-                    )
-
-                  ],
-                ),
-              ),
-              Container(
-                height: 170,
-                width: 155,
-                decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(20)
-                ),
-              ),
-            ],
-          )
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //   children: [
+          //     Container(
+          //       height: 170,
+          //       width: 155,
+          //       decoration: BoxDecoration(
+          //           color: Colors.white10,
+          //           borderRadius: BorderRadius.circular(20)
+          //       ),
+          //     ),
+          //     Container(
+          //       height: 170,
+          //       width: 155,
+          //       decoration: BoxDecoration(
+          //           color: Colors.white10,
+          //           borderRadius: BorderRadius.circular(20)
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // SizedBox(
+          //
+          //   height: 20,
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //   children: [
+          //     Container(
+          //       padding: EdgeInsets.symmetric(vertical: 10),
+          //       height: 170,
+          //       width: 155,
+          //       decoration: BoxDecoration(
+          //           color: Colors.white10,
+          //           borderRadius: BorderRadius.circular(20)
+          //       ),
+          //       child: Column(
+          //         children: [
+          //           Row(
+          //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //             children: [
+          //               Icon(Icons.cloudy_snowing,color: Colors.white70,),
+          //               Text('Precipitation',style: TextStyle(
+          //                 color: Colors.white70
+          //               ),)
+          //             ],
+          //           ),
+          //
+          //           Row(
+          //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //             children: [
+          //               Text('14.1',style: TextStyle(
+          //                   color: Colors.white70
+          //               ),),
+          //               Text('mm | 60%',style: TextStyle(
+          //                   color: Colors.white70
+          //               ),),
+          //
+          //             ],
+          //           ),
+          //           Text(
+          //             'Pay attention to waterproofing, avoid slips, and be careful of standing water',
+          //             style: TextStyle(
+          //               overflow: TextOverflow.visible, // You can also use TextOverflow.fade or TextOverflow.clip
+          //             ),
+          //           )
+          //
+          //         ],
+          //       ),
+          //     ),
+          //     Container(
+          //       height: 170,
+          //       width: 155,
+          //       decoration: BoxDecoration(
+          //           color: Colors.white10,
+          //           borderRadius: BorderRadius.circular(20)
+          //       ),
+          //     ),
+          //   ],
+          // )
 
 
           
