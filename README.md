@@ -1,6 +1,5 @@
 # Weather Forecast App
 
-
 ## Introduction
 Welcome to the Weather Forecast App! This application provides accurate and up-to-date weather information for locations around the world. Built using Flutter, the app offers a sleek and intuitive user interface, making it easy for users to check the weather at their fingertips.
 
