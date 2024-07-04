@@ -12,7 +12,6 @@ Welcome to the Weather Forecast App! This application provides accurate and up-t
 * Customizable UI: Switch between different themes (e.g., light and dark mode) for a personalized user experience.
 * Interactive Charts: Visualize weather data with interactive charts and graphs for better understanding.
 
-
 ### 
 <h3 align="center"><i>Images</i></h3>
 
