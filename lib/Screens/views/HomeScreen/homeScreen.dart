@@ -7,7 +7,7 @@ import '../../controler/Weather_provider.dart';
 import 'Components/glass_Container.dart';
 import 'Components/weather_app_bar.dart';
 import 'Components/weather_image.dart';
-import 'shared_preferences_screen.dart';
+import 'saved_cities_screen.dart';
 
 class Homescreen extends StatelessWidget {
   Homescreen({super.key, required this.weatherProvider});
@@ -73,7 +73,6 @@ class Homescreen extends StatelessWidget {
                                 icon: Icon(Icons.search, color: Colors.blueGrey),
                                 onPressed: () async {
                                   weatherProviderfalse.fetchData(searchController.text);
-                                  await saveCityToPreferences(searchController.text);
                                   searchController.clear();
                                 },
                               ),
@@ -93,7 +92,6 @@ class Homescreen extends StatelessWidget {
                             ),
                             onSubmitted: (value) async {
                               weatherProviderfalse.fetchData(value);
-                              await saveCityToPreferences(value);
                               searchController.clear();
                             },
                           ),
@@ -132,11 +130,11 @@ class Homescreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SharedPreferencesScreen(),
+                                builder: (context) => SavedCitiesScreen(),
                               ),
                             );
                           },
-                          child: Text('View Saved City'),
+                          child: Text('View Saved Cities'),
                         ),
                       ],
                     ),
@@ -149,9 +147,4 @@ class Homescreen extends StatelessWidget {
       ),
     );
   }
-
-  // Future<void> saveCityToPreferences(String city) async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   await prefs.setString('saved_city', city);
-  // }
 }

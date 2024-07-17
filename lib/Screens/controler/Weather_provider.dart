@@ -8,16 +8,17 @@ class WeatherProvider extends ChangeNotifier {
   Weather? weather;
   DateTime dateTime = DateTime.now();
   bool isLoading = false;
+  List<String> savedCities = [];
 
   WeatherProvider() {
     fetchData('Surat');
+    loadSavedCities();
   }
 
   Future<void> fetchData(String query) async {
     isLoading = true;
     notifyListeners();
 
-    // String? jsonData = await apiservice.getData(query);
     String? jsonData = await ApiServices.apiservice.getData(query);
 
     if (jsonData != null) {
@@ -36,6 +37,13 @@ class WeatherProvider extends ChangeNotifier {
 
   Future<void> saveCityToPreferences(String city) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('saved_city', city);
+    savedCities.add(city);
+    await prefs.setStringList('saved_cities', savedCities);
+  }
+
+  Future<void> loadSavedCities() async {
+    final prefs = await SharedPreferences.getInstance();
+    savedCities = prefs.getStringList('saved_cities') ?? [];
+    notifyListeners();
   }
 }
