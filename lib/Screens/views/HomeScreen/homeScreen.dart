@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../controler/Weather_provider.dart';
 import 'Components/glass_Container.dart';
-import 'Components/weather app bar.dart';
+import 'Components/weather_app_bar.dart';
 import 'Components/weather_image.dart';
+import 'shared_preferences_screen.dart';
 
 class Homescreen extends StatelessWidget {
   Homescreen({super.key, required this.weatherProvider});
@@ -14,8 +16,7 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    WeatherProvider weatherProviderfalse = Provider.of<WeatherProvider>(context,listen: false);
+    WeatherProvider weatherProviderfalse = Provider.of<WeatherProvider>(context, listen: false);
     TextEditingController searchController = TextEditingController();
 
     final height = MediaQuery.of(context).size.height;
@@ -51,16 +52,14 @@ class Homescreen extends StatelessWidget {
             )
                 : Column(
               children: [
-                wetherAppBar(context,width),
+                weatherAppBar(context, width),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-
                         SizedBox(
                           height: 30,
                         ),
-
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
@@ -69,12 +68,12 @@ class Homescreen extends StatelessWidget {
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.5),
                               hintText: 'Enter city name',
-
                               prefixIcon: Icon(Icons.location_city, color: Colors.blueGrey),
                               suffixIcon: IconButton(
                                 icon: Icon(Icons.search, color: Colors.blueGrey),
-                                onPressed: () {
+                                onPressed: () async {
                                   weatherProviderfalse.fetchData(searchController.text);
+                                  await saveCityToPreferences(searchController.text);
                                   searchController.clear();
                                 },
                               ),
@@ -92,21 +91,16 @@ class Homescreen extends StatelessWidget {
                               ),
                               contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                             ),
-                            onSubmitted: (value) {
+                            onSubmitted: (value) async {
                               weatherProviderfalse.fetchData(value);
+                              await saveCityToPreferences(value);
                               searchController.clear();
                             },
-
                           ),
-
                         ),
-
                         SizedBox(
                           height: 280,
                         ),
-
-
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,8 +109,8 @@ class Homescreen extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 16.0),
                               child: Text(
                                 weatherProvider.weather!.currentModal.tempC.toString(),
-                                style:
-                                GoogleFonts.poppins(color: Colors.white, fontSize: 80,fontWeight: FontWeight.w400),
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white, fontSize: 80, fontWeight: FontWeight.w400),
                               ),
                             ),
                             Padding(
@@ -132,8 +126,18 @@ class Homescreen extends StatelessWidget {
                             ),
                           ],
                         ),
-
                         glassmorphicContainerTemp(height, width, weatherProvider),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SharedPreferencesScreen(),
+                              ),
+                            );
+                          },
+                          child: Text('View Saved City'),
+                        ),
                       ],
                     ),
                   ),
@@ -145,6 +149,9 @@ class Homescreen extends StatelessWidget {
       ),
     );
   }
+
+  // Future<void> saveCityToPreferences(String city) async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   await prefs.setString('saved_city', city);
+  // }
 }
-
-
