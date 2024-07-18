@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../controler/Weather_provider.dart';
-import '../../searched_screen.dart';
 
 
 Row wetherAppBar(BuildContext context, double width) {
