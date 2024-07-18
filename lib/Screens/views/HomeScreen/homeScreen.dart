@@ -26,13 +26,17 @@ class Homescreen extends StatelessWidget {
     }
 
     // Determine the background image based on the weather condition
-    String backgroundImage = 'assets/rain.gif'; // Default image
+    String backgroundImage = 'assets/blue-fly.gif'; // Default image
     if (weatherProvider.weather != null) {
       String condition = weatherProvider.weather!.currentModal.conditionModel.text.toLowerCase();
       if (condition.contains('partly cloudy')) {
         backgroundImage = 'assets/cloudthunder.gif'; // Replace with your partly cloudy image path
       } else if (condition.contains('rain')) {
         backgroundImage = 'assets/rain.gif'; // Replace with your rain image path
+      }else if (condition.contains('fair')) {
+        backgroundImage = 'assets/blue-fly.gif'; // Replace with your rain image path
+      }else if (condition.contains('Cloudy')) {
+        backgroundImage = 'assets/cloudy.gif'; // Replace with your rain image path
       }
       // Add more conditions as needed
     }
