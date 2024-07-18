@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../controler/Weather_provider.dart';
 
-class CityDetailScreen extends StatelessWidget {
-  const CityDetailScreen({super.key, required this.cityName});
 
+class CityDetailScreen extends StatelessWidget {
+  const CityDetailScreen({Key? key, required this.cityName}) : super(key: key);
 
   final String cityName;
+
   @override
   Widget build(BuildContext context) {
     WeatherProvider weatherProvider = Provider.of<WeatherProvider>(context);
@@ -25,12 +27,12 @@ class CityDetailScreen extends StatelessWidget {
           children: [
             Text(
               'Weather Details for $cityName',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text('Temperature: ${weatherDetails.currentModal.tempC}°C'),
             Text('Condition: ${weatherDetails.currentModal.conditionModel.text}'),
-            // Add more weather details here
+            // You can add more weather details here if needed
           ],
         ),
       ),

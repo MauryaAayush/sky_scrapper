@@ -30,19 +30,19 @@ Row wetherAppBar(BuildContext context, double width) {
         width: width * 0.03,
       ),
       Spacer(),
-       IconButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SavedCitiesScreen(),
-            ),
-          );
-        },
-        icon: Icon( Icons.menu,
-          size: 25,
-          color: Colors.white,),
-      ),
+      //  IconButton(
+      //   // onPressed: () {
+      //   //   Navigator.push(
+      //   //     context,
+      //   //     MaterialPageRoute(
+      //   //       builder: (context) => const SavedCitiesScreen(),
+      //   //     ),
+      //   //   );
+      //   // },
+      //   icon: Icon( Icons.menu,
+      //     size: 25,
+      //     color: Colors.white,),
+      // ),
       SizedBox(
         width: width * 0.06,
       ),

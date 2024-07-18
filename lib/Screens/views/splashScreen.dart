@@ -23,8 +23,12 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
-        child: Image.asset('assets/splash_image.png'), // Replace with your image path
+        child: SizedBox(
+            height: 100,
+            width: 100,
+            child: Image.asset('assets/splash.gif')), // Replace with your image path
       ),
     );
   }
