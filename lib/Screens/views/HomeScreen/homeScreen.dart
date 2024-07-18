@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../controler/Weather_provider.dart';
+import '../searched_screen.dart';
 import 'Components/glass_Container.dart';
-import 'Components/weather_app_bar.dart';
-import 'Components/weather_image.dart';
-import 'saved_cities_screen.dart';
+import 'Components/weather app bar.dart';
+
 
 class Homescreen extends StatelessWidget {
   Homescreen({super.key, required this.weatherProvider});
@@ -27,9 +25,9 @@ class Homescreen extends StatelessWidget {
     if (weatherProvider.weather != null) {
       String condition = weatherProvider.weather!.currentModal.conditionModel.text.toLowerCase();
       if (condition.contains('partly cloudy')) {
-        backgroundImage = 'assets/cloudthunder.gif'; // Replace with your partly cloudy image path
+        backgroundImage = 'assets/cloudthunder.gif';
       } else if (condition.contains('rain')) {
-        backgroundImage = 'assets/rain.gif'; // Replace with your rain image path
+        backgroundImage = 'assets/rain.gif';
       }
       // Add more conditions as needed
     }
@@ -52,7 +50,7 @@ class Homescreen extends StatelessWidget {
             )
                 : Column(
               children: [
-                weatherAppBar(context, width),
+                wetherAppBar(context, width),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
@@ -88,7 +86,8 @@ class Homescreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20.0),
                                 borderSide: BorderSide.none,
                               ),
-                              contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+                              contentPadding:
+                              EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                             ),
                             onSubmitted: (value) async {
                               weatherProviderfalse.fetchData(value);
@@ -108,7 +107,9 @@ class Homescreen extends StatelessWidget {
                               child: Text(
                                 weatherProvider.weather!.currentModal.tempC.toString(),
                                 style: GoogleFonts.poppins(
-                                    color: Colors.white, fontSize: 80, fontWeight: FontWeight.w400),
+                                    color: Colors.white,
+                                    fontSize: 80,
+                                    fontWeight: FontWeight.w400),
                               ),
                             ),
                             Padding(

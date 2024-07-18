@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controler/Weather_provider.dart';
+import 'cityDetailedScreen.dart';
+
 
 class SavedCitiesScreen extends StatelessWidget {
   @override
@@ -14,8 +16,17 @@ class SavedCitiesScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: weatherProvider.savedCities.length,
         itemBuilder: (context, index) {
+          final cityName = weatherProvider.savedCities[index];
           return ListTile(
-            title: Text(weatherProvider.savedCities[index]),
+            title: Text(cityName),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CityDetailScreen(cityName: cityName),
+                ),
+              );
+            },
           );
         },
       ),

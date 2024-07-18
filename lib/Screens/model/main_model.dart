@@ -162,7 +162,7 @@ class ForecastDay {
   final double visMiles;
   final double gustMph;
   final double gustKph;
-  final double uv;
+  // final double uv;
 
   Hour({
     required this.timeEpoch,
@@ -200,7 +200,7 @@ class ForecastDay {
     required this.visMiles,
     required this.gustMph,
     required this.gustKph,
-    required this.uv,
+    // required this.uv,
   });
 
   factory Hour.fromJson(Map json) {
@@ -238,7 +238,7 @@ class ForecastDay {
       visMiles: json['vis_miles'],
       gustMph: json['gust_mph'],
       gustKph: json['gust_kph'],
-      uv: json['uv'],
+      // uv: json['uv'],
     );
   }
 
@@ -277,7 +277,7 @@ class ForecastDay {
       'vis_miles': visMiles,
       'gust_mph': gustMph,
       'gust_kph': gustKph,
-      'uv': uv,
+      // 'uv': uv,
     };
   }
 }
