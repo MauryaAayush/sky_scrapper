@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../controler/Weather_provider.dart';
+import '../../searched_screen.dart';
 
 
 Row wetherAppBar(BuildContext context, double width) {
@@ -29,10 +30,18 @@ Row wetherAppBar(BuildContext context, double width) {
         width: width * 0.03,
       ),
       Spacer(),
-      const Icon(
-        Icons.menu,
-        size: 25,
-        color: Colors.white,
+       IconButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SavedCitiesScreen(),
+            ),
+          );
+        },
+        icon: Icon( Icons.menu,
+          size: 25,
+          color: Colors.white,),
       ),
       SizedBox(
         width: width * 0.06,
