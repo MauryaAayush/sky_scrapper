@@ -8,26 +8,31 @@ import 'Components/weather app bar.dart';
 
 
 class Homescreen extends StatelessWidget {
-  Homescreen({super.key, required this.weatherProvider});
+  const Homescreen({super.key, this.initialCity});
 
-  final WeatherProvider weatherProvider;
+  final String? initialCity;
 
   @override
   Widget build(BuildContext context) {
-    WeatherProvider weatherProviderfalse = Provider.of<WeatherProvider>(context, listen: false);
+    WeatherProvider weatherProvider = Provider.of<WeatherProvider>(context, listen: true);
     TextEditingController searchController = TextEditingController();
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+
+    // Fetch weather data for the initial city if provided
+    if (initialCity != null && initialCity!.isNotEmpty) {
+      weatherProvider.fetchData(initialCity!);
+    }
 
     // Determine the background image based on the weather condition
     String backgroundImage = 'assets/rain.gif'; // Default image
     if (weatherProvider.weather != null) {
       String condition = weatherProvider.weather!.currentModal.conditionModel.text.toLowerCase();
       if (condition.contains('partly cloudy')) {
-        backgroundImage = 'assets/cloudthunder.gif';
+        backgroundImage = 'assets/cloudthunder.gif'; // Replace with your partly cloudy image path
       } else if (condition.contains('rain')) {
-        backgroundImage = 'assets/rain.gif';
+        backgroundImage = 'assets/rain.gif'; // Replace with your rain image path
       }
       // Add more conditions as needed
     }
@@ -70,7 +75,7 @@ class Homescreen extends StatelessWidget {
                               suffixIcon: IconButton(
                                 icon: Icon(Icons.search, color: Colors.blueGrey),
                                 onPressed: () async {
-                                  weatherProviderfalse.fetchData(searchController.text);
+                                  weatherProvider.fetchData(searchController.text);
                                   searchController.clear();
                                 },
                               ),
@@ -90,7 +95,7 @@ class Homescreen extends StatelessWidget {
                               EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                             ),
                             onSubmitted: (value) async {
-                              weatherProviderfalse.fetchData(value);
+                              weatherProvider.fetchData(value);
                               searchController.clear();
                             },
                           ),

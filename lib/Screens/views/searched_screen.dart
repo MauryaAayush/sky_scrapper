@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controler/Weather_provider.dart';
-import 'cityDetailedScreen.dart';
+import 'HomeScreen/homeScreen.dart';
 
 
 class SavedCitiesScreen extends StatelessWidget {
+  const SavedCitiesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     WeatherProvider weatherProvider = Provider.of<WeatherProvider>(context);
@@ -20,10 +22,10 @@ class SavedCitiesScreen extends StatelessWidget {
           return ListTile(
             title: Text(cityName),
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CityDetailScreen(cityName: cityName),
+                  builder: (context) => Homescreen(initialCity: cityName),
                 ),
               );
             },
