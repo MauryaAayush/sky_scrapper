@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sky_scrapper/Screens/controler/Weather_provider.dart';
-
-import 'Screens/views/HomeScreen/homeScreen.dart';
 import 'Screens/views/splashScreen.dart';
-import 'Screens/views/testingscreen.dart';
+
 
 void main() {
   runApp(
