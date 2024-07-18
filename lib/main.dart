@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sky_scrapper/Screens/controler/Weather_provider.dart';
 
 import 'Screens/views/HomeScreen/homeScreen.dart';
+import 'Screens/views/splashScreen.dart';
 import 'Screens/views/testingscreen.dart';
 
 void main() {
@@ -19,11 +20,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WeatherProvider weatherProviderTrue = Provider.of<WeatherProvider>(context);
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // home: WeatherPage(),
-      home:  Homescreen(),
+      home:  Splashscreen(),
     );
   }
 }
