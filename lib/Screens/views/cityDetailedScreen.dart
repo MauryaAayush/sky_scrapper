@@ -27,7 +27,7 @@ class CityDetailScreen extends StatelessWidget {
               'Weather Details for $cityName',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text('Temperature: ${weatherDetails.currentModal.tempC}°C'),
             Text('Condition: ${weatherDetails.currentModal.conditionModel.text}'),
             // Add more weather details here
