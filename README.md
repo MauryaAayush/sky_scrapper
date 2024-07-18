@@ -30,7 +30,11 @@ Welcome to the Weather Forecast App! This application provides accurate and up-t
 <h3 align="center"><i>Video</i></h3>
 <div align="center">    
 
-https://github.com/MauryaAayush/sky_scrapper/assets/143180849/ad412632-be20-49cd-89de-02debb804bdb
+
+
+
+
+<video src = "https://github.com/user-attachments/assets/8ec9015d-66d0-4e41-ab29-978ef7cec1e3">
 
 </div>
 
