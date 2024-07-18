@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import '../controler/Weather_provider.dart';
 
 class CityDetailScreen extends StatelessWidget {
+  const CityDetailScreen({super.key, required this.cityName});
+
+
   final String cityName;
-
-  CityDetailScreen({required this.cityName});
-
   @override
   Widget build(BuildContext context) {
     WeatherProvider weatherProvider = Provider.of<WeatherProvider>(context);
