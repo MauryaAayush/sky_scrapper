@@ -31,9 +31,6 @@ Welcome to the Weather Forecast App! This application provides accurate and up-t
 <div align="center">    
 
 
-
-
-
 <video src = "https://github.com/user-attachments/assets/8ec9015d-66d0-4e41-ab29-978ef7cec1e3">
 
 </div>
